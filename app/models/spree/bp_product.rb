@@ -15,6 +15,7 @@ module Spree
     def match_fields
       bp_product = get_bp_product(@brightpearl_id)
       prices = get_prices(@brightpearl_id)
+      brand = get_brand(bp_product.brand_id)
 
       {
         name:                 bp_product.sales_channels.first.product_name,
@@ -22,6 +23,7 @@ module Spree
         sku:                  bp_product.identity.sku,
         price:                prices.price_lists.first.quantity_price.to_h.values.first,
         shipping_category_id: 1,
+        brand:                brand.name,
         brightpearl_id:       @brightpearl_id
       }
     end
@@ -55,6 +57,10 @@ module Spree
 
     def get_prices(brightpearl_id)
       Nacre::API::Price.find brightpearl_id
+    end
+
+    def get_brand(brand_id)
+      Nacre::API::Brand.find brand_id
     end
   end
 end
