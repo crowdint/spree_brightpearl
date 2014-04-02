@@ -13,8 +13,11 @@ describe Spree::BpProduct do
 
   describe '#update' do
     let!(:product){ create :product, brightpearl_id: 1010 }
+    let!(:brand){ create :taxonomy, name: 'Brand' }
 
     before do
+      product.brand = 'Magma'
+
       VCR.use_cassette 'bp/product' do
         described_class.update(params)
       end
@@ -32,6 +35,10 @@ describe Spree::BpProduct do
 
     it 'updates product price' do
       expect(product.price).to eq 1000
+    end
+
+    it 'update product brand' do
+      expect(product.brand.name).to eq 'Rails'
     end
   end
 
