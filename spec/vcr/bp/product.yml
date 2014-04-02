@@ -1,0 +1,147 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://ws-use.brightpearl.com/crowdint/authorise
+    body:
+      encoding: UTF-8
+      string: '{"apiAccountCredentials":{"emailAddress":"steven@crowdint.com","password":"Nagarrab8"}}'
+    headers:
+      User-Agent:
+      - Faraday v0.9.0
+      Content-Type:
+      - application/json
+      Accept:
+      - json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache, must-revalidate
+      Content-Type:
+      - application/json;charset=UTF-8
+      Date:
+      - Wed, 02 Apr 2014 18:45:19 GMT
+      Expires:
+      - Sun, 20 Dec 1998 01:00:00 GMT
+      Pragma:
+      - no-cache
+      Ruid:
+      - 20b9ef51-7fc1-4e61-b2f5-7f07d4e8127e
+      Server:
+      - Apache-Coyote/1.1
+      Content-Length:
+      - '51'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"response":"c8407c49-f5ac-410c-898b-5354142fcc99"}'
+    http_version: 
+  recorded_at: Wed, 02 Apr 2014 18:45:20 GMT
+- request:
+    method: get
+    uri: https://ws-use.brightpearl.com/2.0.0/crowdint//product-service/product/1010
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.0
+      Content-Type:
+      - application/json
+      Accept:
+      - json
+      Brightpearl-Auth:
+      - c8407c49-f5ac-410c-898b-5354142fcc99
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Brightpearl-Next-Throttle-Period:
+      - '35389'
+      Brightpearl-Requests-Remaining:
+      - '199'
+      Cache-Control:
+      - no-cache, must-revalidate
+      Content-Type:
+      - application/json;charset=UTF-8
+      Date:
+      - Wed, 02 Apr 2014 18:45:23 GMT
+      Expires:
+      - Sun, 20 Dec 1998 01:00:00 GMT
+      Pragma:
+      - no-cache
+      Ruid:
+      - 152e16db-4ee4-415e-9598-5d73f00b82cd
+      Server:
+      - Apache-Coyote/1.1
+      Content-Length:
+      - '782'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"response":[{"id":1010,"brandId":75,"productTypeId":1,"identity":{"sku":"SKUawwer","barcode":""},"stock":{"stockTracked":true,"weight":{"magnitude":10.00}},"financialDetails":{"taxable":false,"taxCode":{"id":1,"code":"Z"}},"salesChannels":[{"salesChannelName":"Brightpearl","productName":"Crowd
+        product","productCondition":"new","categories":[{"categoryCode":"295"}],"description":{"languageCode":"en","text":"\u003cp\u003eThis
+        is the largeeeeee description!!!!!!!!\u003c/p\u003e","format":"HTML_FRAGMENT"},"shortDescription":{"languageCode":"en","text":"\u003cp\u003eThis
+        is the short description\u003c/p\u003e","format":"HTML_FRAGMENT"}}],"composition":{"bundle":false},"warehouses":{"2":{"defaultLocationId":0,"reorderLevel":20,"reorderQuantity":0}},"nominalCodeStock":"1001"}]}'
+    http_version: 
+  recorded_at: Wed, 02 Apr 2014 18:45:24 GMT
+- request:
+    method: get
+    uri: https://ws-use.brightpearl.com/2.0.0/crowdint//product-service/product-price/1010
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.0
+      Content-Type:
+      - application/json
+      Accept:
+      - json
+      Brightpearl-Auth:
+      - c8407c49-f5ac-410c-898b-5354142fcc99
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Brightpearl-Next-Throttle-Period:
+      - '34121'
+      Brightpearl-Requests-Remaining:
+      - '198'
+      Cache-Control:
+      - no-cache, must-revalidate
+      Content-Type:
+      - application/json;charset=UTF-8
+      Date:
+      - Wed, 02 Apr 2014 18:45:25 GMT
+      Expires:
+      - Sun, 20 Dec 1998 01:00:00 GMT
+      Pragma:
+      - no-cache
+      Ruid:
+      - 8b1a4033-34fb-42d7-ac74-80935fb8d9ee
+      Server:
+      - Apache-Coyote/1.1
+      Content-Length:
+      - '209'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"response":[{"productId":1010,"priceLists":[{"priceListId":1,"currencyCode":"USD","currencyId":1,"quantityPrice":{"1":"1000.0000"}},{"priceListId":2,"currencyCode":"USD","currencyId":1,"quantityPrice":{}}]}]}'
+    http_version: 
+  recorded_at: Wed, 02 Apr 2014 18:45:26 GMT
+recorded_with: VCR 2.9.0
