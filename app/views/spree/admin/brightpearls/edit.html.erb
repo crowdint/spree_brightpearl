@@ -4,7 +4,7 @@
   <%= Spree.t :brightpearl_settings  %>
 <% end %>
 
-<%= form_tag admin_brightpearl_path, :method => :put do %>
+<%= form_tag admin_brightpearl_path, method: :put do %>
   <fieldset class="general no-border-top">
     <% @preferences.each do |key|
       type = Spree::Config.preference_type(key) %>
