@@ -1,5 +1,6 @@
 SpreeBrightpearl
 ================
+[![Build Status](https://travis-ci.org/crowdint/spree_brightpearl.svg?branch=bp-config-from-spree-backend)](https://travis-ci.org/crowdint/spree_brightpearl)
 
 Introduction goes here.
 
