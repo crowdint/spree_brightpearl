@@ -4,6 +4,7 @@ module Spree
       def edit
         @preferences = [
           :brightpearl_id,
+          :brightpearl_email,
           :brightpearl_password,
           :brightpearl_centre,
           :brightpearl_api_version
@@ -23,7 +24,7 @@ module Spree
       private
 
       def brightpearl_params
-        params.permit :brightpearl_id, :brightpearl_password, :brightpearl_centre, :brightpearl_api_version
+        params.permit :brightpearl_id,:brightpearl_email, :brightpearl_password, :brightpearl_centre, :brightpearl_api_version
       end
     end
   end
