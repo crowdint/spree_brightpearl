@@ -1,9 +1,9 @@
 module Spree
-  class BpProduct
+  class BpProduct < Brightpearl
     attr_accessor :product
 
     def initialize(brightpearl_id)
-      connect
+      super()
 
       @brightpearl_id = brightpearl_id
     end
@@ -46,10 +46,6 @@ module Spree
     end
 
     private
-
-    def connect
-      Nacre::Api.new( file: Rails.root.join('config', 'brightpearl_config.yml').to_s)
-    end
 
     def get_bp_product(brightpearl_id)
       Nacre::API::Product.find brightpearl_id

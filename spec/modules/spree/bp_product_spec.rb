@@ -3,6 +3,12 @@ require 'spec_helper'
 describe Spree::BpProduct do
   let(:params){ { 'id' => '1010'}}
 
+  before do
+    Spree::Config[:brightpearl_email] = 'test@test.com'
+    Spree::Config[:brightpearl_id] = 'crowdint'
+    Spree::Config[:brightpearl_password] = 'password'
+  end
+
   describe '#create' do
     it 'creates new product' do
       VCR.use_cassette 'bp/product' do
