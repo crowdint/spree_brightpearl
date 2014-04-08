@@ -25,6 +25,21 @@ describe Spree::BpProduct do
         expect(@product.variants.count).to eq 1
       end
     end
+
+    context 'create a product variant' do
+      let!(:product){ create :product, name: 'Crowd produc test' }
+      let!(:variant){ create :variant, product: product }
+
+      before do
+        VCR.use_cassette 'bp/product_with_variants' do
+          @product = described_class.create(params)
+        end
+      end
+
+      it 'creates a new variant in existent product' do
+        expect(@product.variants.count).to eq 2
+      end
+    end
   end
 
   describe '#update' do
