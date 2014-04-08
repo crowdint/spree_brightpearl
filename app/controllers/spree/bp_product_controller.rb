@@ -4,7 +4,11 @@ class BpProductController < AppicationController
   end
 
   def update
-    BpProduct.update bp_products_params
+    if params['full-event'] == 'product.modified.on-hand-modified'
+      BpProduct.sync_stock(bp_products_params)
+    else
+      BpProduct.update bp_products_params
+    end
   end
 
   def destroy
