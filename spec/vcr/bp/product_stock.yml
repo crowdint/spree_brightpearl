@@ -1,0 +1,147 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://ws-use.brightpearl.com/crowdint/authorise
+    body:
+      encoding: UTF-8
+      string: '{"apiAccountCredentials":{"emailAddress":"steven@crowdint.com","password":"Nagarrab8"}}'
+    headers:
+      User-Agent:
+      - Faraday v0.9.0
+      Content-Type:
+      - application/json
+      Accept:
+      - json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache, must-revalidate
+      Content-Type:
+      - application/json;charset=UTF-8
+      Date:
+      - Tue, 08 Apr 2014 21:35:43 GMT
+      Expires:
+      - Sun, 20 Dec 1998 01:00:00 GMT
+      Pragma:
+      - no-cache
+      Ruid:
+      - 395d22e6-365d-4fd7-979b-e02b66608e00
+      Server:
+      - Apache-Coyote/1.1
+      Content-Length:
+      - '51'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"response":"c5999008-8d11-4b21-a5d9-7f9bfb19bff1"}'
+    http_version: 
+  recorded_at: Tue, 08 Apr 2014 21:35:43 GMT
+- request:
+    method: get
+    uri: https://ws-use.brightpearl.com/2.0.0/crowdint//product-service/product/1010
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.0
+      Content-Type:
+      - application/json
+      Accept:
+      - json
+      Brightpearl-Auth:
+      - c5999008-8d11-4b21-a5d9-7f9bfb19bff1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Brightpearl-Next-Throttle-Period:
+      - '16119'
+      Brightpearl-Requests-Remaining:
+      - '199'
+      Cache-Control:
+      - no-cache, must-revalidate
+      Content-Type:
+      - application/json;charset=UTF-8
+      Date:
+      - Tue, 08 Apr 2014 21:35:43 GMT
+      Expires:
+      - Sun, 20 Dec 1998 01:00:00 GMT
+      Pragma:
+      - no-cache
+      Ruid:
+      - 4ca49a5f-df4e-4028-9cc8-2462db24b06d
+      Server:
+      - Apache-Coyote/1.1
+      Content-Length:
+      - '896'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"response":[{"id":1010,"brandId":75,"productTypeId":1,"identity":{"sku":"SKUawwer","barcode":""},"productGroupId":2,"stock":{"stockTracked":true,"weight":{"magnitude":10.00}},"financialDetails":{"taxable":false,"taxCode":{"id":1,"code":"Z"}},"salesChannels":[{"salesChannelName":"Brightpearl","productName":"Crowd
+        produc test","productCondition":"new","categories":[{"categoryCode":"295"}],"description":{"languageCode":"en","text":"\u003cp\u003eThis
+        is the largeeeeee description!!!!!!!!\u003c/p\u003e","format":"HTML_FRAGMENT"},"shortDescription":{"languageCode":"en","text":"\u003cp\u003eThis
+        is the short description\u003c/p\u003e","format":"HTML_FRAGMENT"}}],"composition":{"bundle":false},"variations":[{"optionId":1,"optionName":"Color","optionValueId":3,"optionValue":"Green"}],"warehouses":{"2":{"defaultLocationId":0,"reorderLevel":20,"reorderQuantity":0}},"nominalCodeStock":"1001"}]}'
+    http_version: 
+  recorded_at: Tue, 08 Apr 2014 21:35:44 GMT
+- request:
+    method: get
+    uri: https://ws-use.brightpearl.com/2.0.0/crowdint//warehouse-service/product-availability/1010
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.0
+      Content-Type:
+      - application/json
+      Accept:
+      - json
+      Brightpearl-Auth:
+      - c5999008-8d11-4b21-a5d9-7f9bfb19bff1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Brightpearl-Next-Throttle-Period:
+      - '15509'
+      Brightpearl-Requests-Remaining:
+      - '198'
+      Cache-Control:
+      - no-cache, must-revalidate
+      Content-Type:
+      - application/json;charset=UTF-8
+      Date:
+      - Tue, 08 Apr 2014 21:35:44 GMT
+      Expires:
+      - Sun, 20 Dec 1998 01:00:00 GMT
+      Pragma:
+      - no-cache
+      Ruid:
+      - 01adc2e1-f7e3-4b0d-81c1-0dd7a5c3df66
+      Server:
+      - Apache-Coyote/1.1
+      Content-Length:
+      - '132'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"response":{"1010":{"total":{"inStock":80,"onHand":80,"allocated":0},"warehouses":{"2":{"inStock":80,"onHand":80,"allocated":0}}}}}'
+    http_version: 
+  recorded_at: Tue, 08 Apr 2014 21:35:44 GMT
+recorded_with: VCR 2.9.0

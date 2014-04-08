@@ -14,6 +14,6 @@ class BpProductController < AppicationController
   private
 
   def bp_products_params
-    params.permit(:accountCode, :resourceType, :id, 'lifecycle-event')
+    params.permit(:accountCode, :resourceType, :id, 'lifecycle-event', 'full-event')
   end
 end

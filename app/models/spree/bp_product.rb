@@ -16,9 +16,14 @@ module Spree
 
       if bp_product.variations
         variant = Spree::Variant.create product: @spree_product unless variant
-
         variant.options = bp_product.variations.map{ |v| {name: v.option_name, value: v.option_value } }
       end
+    end
+
+    def sync_stock
+      stock = get_availability
+
+      variant.sync_stock(stock.on_hand)
     end
 
     def match_fields
@@ -56,6 +61,12 @@ module Spree
       v.is_master? ? v.product.destroy : v.destroy
     end
 
+    def self.sync_stock(params)
+      bp_product = BpProduct.new(params['id'])
+      bp_product.variant = Spree::Variant.find_by brightpearl_id: params['id']
+      bp_product.sync_stock
+    end
+
     private
 
     def get_bp_product
@@ -68,6 +79,10 @@ module Spree
 
     def get_brand(brand_id)
       Nacre::API::Brand.find brand_id
+    end
+
+    def get_availability
+      Nacre::API::ProductAvailability.find @brightpearl_id
     end
   end
 end
