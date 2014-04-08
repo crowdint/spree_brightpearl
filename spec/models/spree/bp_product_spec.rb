@@ -11,18 +11,14 @@ describe Spree::BpProduct do
 
   describe '#create' do
     context 'create a new product' do
-      before do
-        VCR.use_cassette 'bp/product_with_variants' do
-          @product = described_class.create(params)
-        end
-      end
+      let(:product){ VCR.use_cassette('bp/product_with_variants'){ @product = described_class.create(params) } }
 
       it 'creates new product' do
-        expect(@product).to be_valid
+        expect(product).to be_valid
       end
 
       it 'creates new product with variants' do
-        expect(@product.variants.count).to eq 1
+        expect(product.variants.count).to eq 1
       end
     end
 
