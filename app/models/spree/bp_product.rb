@@ -63,7 +63,8 @@ module Spree
     end
 
     def self.destroy(params)
-      Spree::Product.where(brightpearl_id: params['id']).destroy_all
+      v = Spree::Variant.find_by(brightpearl_id: params['id'])
+      v.is_master? ? v.product.destroy : v.destroy
     end
 
     private

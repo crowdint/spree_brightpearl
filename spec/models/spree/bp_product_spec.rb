@@ -74,14 +74,28 @@ describe Spree::BpProduct do
   end
 
   describe '#destroy' do
-    let!(:product){ create :product, brightpearl_id: 1010 }
+    context 'a product' do
+      let!(:product){ create :product, brightpearl_id: 1010 }
 
-    xit 'destroys a product' do
-      expect{described_class.destroy params}.to(
-        change{Spree::Product.count}.
-        from(1).
-        to(0)
-      )
+      it 'destroys a product' do
+        expect{described_class.destroy params}.to(
+          change{Spree::Product.count}.
+          from(1).
+          to(0)
+        )
+      end
+    end
+
+    context 'a variant' do
+      let!(:variant){ create :product, brightpearl_id: 1010 }
+
+      it 'destroys a product' do
+        expect{described_class.destroy params}.to(
+          change{Spree::Variant.count}.
+          from(1).
+          to(0)
+        )
+      end
     end
   end
 end
