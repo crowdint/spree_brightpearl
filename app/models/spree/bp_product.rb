@@ -57,8 +57,8 @@ module Spree
 
     def self.update(params)
       bp_product = BpProduct.new(params['id'])
-      bp_product.spree_product = Spree::Product.includes(:master).find_by(spree_variants: {brightpearl_id: params['id'] })
-      bp_product.variant = Spree::Variant.find_by brightpearl_id: params['id']
+      bp_product.variant = Spree::Variant.includes(:product).find_by brightpearl_id: params['id']
+      bp_product.spree_product = bp_product.variant.product
       bp_product.update
     end
 
