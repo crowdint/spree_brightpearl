@@ -10,10 +10,17 @@ module Spree
 
     def update
       @product.update match_fields
+
+      bp_product = get_bp_product
+
+      if bp_product.variations
+        variant = Spree::Variant.create product: @product
+        variant.options = bp_product.variations.map{ |v| {name: v.option_name, value: v.option_value } }
+      end
     end
 
     def match_fields
-      bp_product = get_bp_product(@brightpearl_id)
+      bp_product = get_bp_product
       prices = get_prices(@brightpearl_id)
       brand = get_brand(bp_product.brand_id)
 
@@ -37,7 +44,7 @@ module Spree
 
     def self.update(params)
       bp_product = BpProduct.new(params['id'])
-      bp_product.product = Spree::Product.find_by brightpearl_id: params['id']
+      bp_product.product = Spree::Product.includes(:master).find_by(spree_variants: {brightpearl_id: params['id'] })
       bp_product.update
     end
 
@@ -47,8 +54,8 @@ module Spree
 
     private
 
-    def get_bp_product(brightpearl_id)
-      Nacre::API::Product.find brightpearl_id
+    def get_bp_product
+      @bp_product ||= Nacre::API::Product.find @brightpearl_id
     end
 
     def get_prices(brightpearl_id)

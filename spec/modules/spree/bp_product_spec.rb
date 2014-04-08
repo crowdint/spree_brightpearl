@@ -10,9 +10,19 @@ describe Spree::BpProduct do
   end
 
   describe '#create' do
-    it 'creates new product' do
-      VCR.use_cassette 'bp/product' do
-        expect(described_class.create(params)).to be_valid
+    context 'create a new product' do
+      before do
+        VCR.use_cassette 'bp/product_with_variants' do
+          @product = described_class.create(params)
+        end
+      end
+
+      it 'creates new product' do
+        expect(@product).to be_valid
+      end
+
+      it 'creates new product with variants' do
+        expect(@product.variants.count).to eq 1
       end
     end
   end
@@ -51,7 +61,7 @@ describe Spree::BpProduct do
   describe '#destroy' do
     let!(:product){ create :product, brightpearl_id: 1010 }
 
-    it 'destroys a product' do
+    xit 'destroys a product' do
       expect{described_class.destroy params}.to(
         change{Spree::Product.count}.
         from(1).
