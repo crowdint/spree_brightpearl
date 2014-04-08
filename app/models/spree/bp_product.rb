@@ -9,17 +9,6 @@ module Spree
       @name = get_bp_product.sales_channels.first.product_name
     end
 
-    def create
-      @spree_product.update match_fields
-
-      bp_product = get_bp_product
-
-      if bp_product.variations
-        variant = Spree::Variant.create product: @spree_product
-        variant.options = bp_product.variations.map{ |v| {name: v.option_name, value: v.option_value } }
-      end
-    end
-
     def update
       @spree_product.update match_fields
 
