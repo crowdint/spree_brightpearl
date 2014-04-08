@@ -27,7 +27,7 @@ describe Spree::BpProduct do
     end
 
     context 'create a product variant' do
-      let!(:product){ create :product, name: 'Crowd produc test' }
+      let!(:product){ create :product, name: 'Crowd product' }
       let!(:variant){ create :variant, product: product }
 
       before do

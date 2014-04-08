@@ -90,7 +90,7 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"response":[{"id":1010,"brandId":75,"productTypeId":1,"identity":{"sku":"SKUawwer","barcode":""},"productGroupId":2,"stock":{"stockTracked":true,"weight":{"magnitude":10.00}},"financialDetails":{"taxable":false,"taxCode":{"id":1,"code":"Z"}},"salesChannels":[{"salesChannelName":"Brightpearl","productName":"Crowd
-        produc test","productCondition":"new","categories":[{"categoryCode":"295"}],"description":{"languageCode":"en","text":"\u003cp\u003eThis
+        product","productCondition":"new","categories":[{"categoryCode":"295"}],"description":{"languageCode":"en","text":"\u003cp\u003eThis
         is the largeeeeee description!!!!!!!!\u003c/p\u003e","format":"HTML_FRAGMENT"},"shortDescription":{"languageCode":"en","text":"\u003cp\u003eThis
         is the short description\u003c/p\u003e","format":"HTML_FRAGMENT"}}],"composition":{"bundle":false},"variations":[{"optionId":1,"optionName":"Color","optionValueId":3,"optionValue":"Green"}],"warehouses":{"2":{"defaultLocationId":0,"reorderLevel":20,"reorderQuantity":0}},"nominalCodeStock":"1001"}]}'
     http_version: 
