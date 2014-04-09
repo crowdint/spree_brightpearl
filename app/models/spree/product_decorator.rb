@@ -1,5 +1,7 @@
 module Spree
   Product.class_eval do
+    delegate :brightpearl_id, :brightpearl_id=, to: :master
+
     def brand
       @brand ||= taxons.joins(:taxonomy).find_by( spree_taxonomies: {name: 'Brand'} )
     end

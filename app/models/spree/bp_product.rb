@@ -1,19 +1,28 @@
 module Spree
   class BpProduct < Brightpearl
-    attr_accessor :product
+    attr_accessor :spree_product, :name, :variant
 
     def initialize(brightpearl_id)
       super()
 
       @brightpearl_id = brightpearl_id
+      @name = get_bp_product.sales_channels.first.product_name
     end
 
     def update
-      @product.update match_fields
+      @spree_product.update match_fields
+
+      bp_product = get_bp_product
+
+      if bp_product.variations
+        variant = Spree::Variant.create product: @spree_product unless variant
+
+        variant.options = bp_product.variations.map{ |v| {name: v.option_name, value: v.option_value } }
+      end
     end
 
     def match_fields
-      bp_product = get_bp_product(@brightpearl_id)
+      bp_product = get_bp_product
       prices = get_prices(@brightpearl_id)
       brand = get_brand(bp_product.brand_id)
 
@@ -30,25 +39,27 @@ module Spree
 
     def self.create(params)
       bp_product = BpProduct.new(params['id'])
-      bp_product.product = Spree::Product.new
+      bp_product.spree_product = Spree::Product.find_or_create_by name: bp_product.name
       bp_product.update
-      bp_product.product
+      bp_product.spree_product
     end
 
     def self.update(params)
       bp_product = BpProduct.new(params['id'])
-      bp_product.product = Spree::Product.find_by brightpearl_id: params['id']
+      bp_product.variant = Spree::Variant.includes(:product).find_by brightpearl_id: params['id']
+      bp_product.spree_product = bp_product.variant.product
       bp_product.update
     end
 
     def self.destroy(params)
-      Spree::Product.where(brightpearl_id: params['id']).destroy_all
+      v = Spree::Variant.find_by(brightpearl_id: params['id'])
+      v.is_master? ? v.product.destroy : v.destroy
     end
 
     private
 
-    def get_bp_product(brightpearl_id)
-      Nacre::API::Product.find brightpearl_id
+    def get_bp_product
+      @bp_product ||= Nacre::API::Product.find @brightpearl_id
     end
 
     def get_prices(brightpearl_id)
