@@ -13,7 +13,6 @@ module Spree
       user.brightpearl_id = response[:id]
     end
 
-
     def bp_fields
       {
         salutation: 'Mr.',
