@@ -94,4 +94,18 @@ describe Spree::BpProduct do
       end
     end
   end
+
+  describe '#sync_stock' do
+    let!(:product){ create :product, brightpearl_id: 1010 }
+
+    before do
+      VCR.use_cassette 'bp/product_stock' do
+        described_class.sync_stock(params)
+      end
+    end
+
+    it 'sets count on hand' do
+      expect(product.total_on_hand).to eq 80
+    end
+  end
 end
