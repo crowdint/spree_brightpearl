@@ -43,14 +43,14 @@ module Spree
     end
 
     def self.create(params)
-      bp_product = BpProduct.new(params['id'])
+      bp_product = new(params['id'])
       bp_product.spree_product = Spree::Product.find_or_create_by name: bp_product.name
       bp_product.update
       bp_product.spree_product
     end
 
     def self.update(params)
-      bp_product = BpProduct.new(params['id'])
+      bp_product = new(params['id'])
       bp_product.variant = Spree::Variant.includes(:product).find_by brightpearl_id: params['id']
       bp_product.spree_product = bp_product.variant.product
       bp_product.update
@@ -62,7 +62,7 @@ module Spree
     end
 
     def self.sync_stock(params)
-      bp_product = BpProduct.new(params['id'])
+      bp_product = new(params['id'])
       bp_product.variant = Spree::Variant.find_by brightpearl_id: params['id']
       bp_product.sync_stock
     end
