@@ -32,6 +32,10 @@ require 'spree/testing_support/url_helpers'
 # Requires factories defined in lib/spree_brightpearl/factories.rb
 require 'spree_brightpearl/factories'
 
+require 'sidekiq'
+require 'sidekiq/testing'
+Sidekiq::Testing.fake!
+
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
 

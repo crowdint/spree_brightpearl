@@ -1,0 +1,261 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://ws-use.brightpearl.com/crowdint/authorise
+    body:
+      encoding: UTF-8
+      string: '{"apiAccountCredentials":{"emailAddress":"steven@crowdint.com","password":"Nagarrab8"}}'
+    headers:
+      User-Agent:
+      - Faraday v0.9.0
+      Content-Type:
+      - application/json
+      Accept:
+      - json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache, must-revalidate
+      Content-Type:
+      - application/json;charset=UTF-8
+      Date:
+      - Tue, 22 Apr 2014 22:35:07 GMT
+      Expires:
+      - Sun, 20 Dec 1998 01:00:00 GMT
+      Pragma:
+      - no-cache
+      Ruid:
+      - 9e1dda29-6763-457e-90e5-6b205544bb71
+      Server:
+      - Apache-Coyote/1.1
+      Content-Length:
+      - '51'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"response":"bad21152-819d-4b7e-97f8-49a6aa442b9b"}'
+    http_version: 
+  recorded_at: Tue, 22 Apr 2014 22:35:06 GMT
+- request:
+    method: post
+    uri: https://ws-use.brightpearl.com/crowdint/authorise
+    body:
+      encoding: UTF-8
+      string: '{"apiAccountCredentials":{"emailAddress":"steven@crowdint.com","password":"Nagarrab8"}}'
+    headers:
+      User-Agent:
+      - Faraday v0.9.0
+      Content-Type:
+      - application/json
+      Accept:
+      - json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache, must-revalidate
+      Content-Type:
+      - application/json;charset=UTF-8
+      Date:
+      - Tue, 22 Apr 2014 22:35:07 GMT
+      Expires:
+      - Sun, 20 Dec 1998 01:00:00 GMT
+      Pragma:
+      - no-cache
+      Ruid:
+      - 976aebd3-e92a-43a5-8726-6031c4d5857a
+      Server:
+      - Apache-Coyote/1.1
+      Content-Length:
+      - '51'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"response":"e42da6d5-1430-4eaf-be11-b58695823062"}'
+    http_version: 
+  recorded_at: Tue, 22 Apr 2014 22:35:07 GMT
+- request:
+    method: post
+    uri: https://ws-use.brightpearl.com/crowdint/authorise
+    body:
+      encoding: UTF-8
+      string: '{"apiAccountCredentials":{"emailAddress":"steven@crowdint.com","password":"Nagarrab8"}}'
+    headers:
+      User-Agent:
+      - Faraday v0.9.0
+      Content-Type:
+      - application/json
+      Accept:
+      - json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache, must-revalidate
+      Content-Type:
+      - application/json;charset=UTF-8
+      Date:
+      - Tue, 22 Apr 2014 22:35:08 GMT
+      Expires:
+      - Sun, 20 Dec 1998 01:00:00 GMT
+      Pragma:
+      - no-cache
+      Ruid:
+      - a6e56db6-190a-4309-8f46-329427c47e82
+      Server:
+      - Apache-Coyote/1.1
+      Content-Length:
+      - '51'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"response":"f74ed2d3-3d27-40b0-a27d-68bf452d7b2f"}'
+    http_version: 
+  recorded_at: Tue, 22 Apr 2014 22:35:08 GMT
+- request:
+    method: post
+    uri: https://ws-use.brightpearl.com/crowdint/authorise
+    body:
+      encoding: UTF-8
+      string: '{"apiAccountCredentials":{"emailAddress":"steven@crowdint.com","password":"Nagarrab8"}}'
+    headers:
+      User-Agent:
+      - Faraday v0.9.0
+      Content-Type:
+      - application/json
+      Accept:
+      - json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache, must-revalidate
+      Content-Type:
+      - application/json;charset=UTF-8
+      Date:
+      - Tue, 22 Apr 2014 22:35:08 GMT
+      Expires:
+      - Sun, 20 Dec 1998 01:00:00 GMT
+      Pragma:
+      - no-cache
+      Ruid:
+      - 7a922dc7-7583-47d1-9d5c-d85392aff5c6
+      Server:
+      - Apache-Coyote/1.1
+      Content-Length:
+      - '51'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"response":"80194aa8-36a1-4ea0-9822-e9eb12e06040"}'
+    http_version: 
+  recorded_at: Tue, 22 Apr 2014 22:35:08 GMT
+- request:
+    method: post
+    uri: https://ws-use.brightpearl.com/crowdint/authorise
+    body:
+      encoding: UTF-8
+      string: '{"apiAccountCredentials":{"emailAddress":"steven@crowdint.com","password":"Nagarrab8"}}'
+    headers:
+      User-Agent:
+      - Faraday v0.9.0
+      Content-Type:
+      - application/json
+      Accept:
+      - json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache, must-revalidate
+      Content-Type:
+      - application/json;charset=UTF-8
+      Date:
+      - Tue, 22 Apr 2014 22:35:09 GMT
+      Expires:
+      - Sun, 20 Dec 1998 01:00:00 GMT
+      Pragma:
+      - no-cache
+      Ruid:
+      - 12ed1828-81cd-4cd5-b300-169f5cb6d2f7
+      Server:
+      - Apache-Coyote/1.1
+      Content-Length:
+      - '51'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"response":"070761f5-b974-44d1-8df2-927a6eae7edf"}'
+    http_version: 
+  recorded_at: Tue, 22 Apr 2014 22:35:09 GMT
+- request:
+    method: post
+    uri: https://ws-use.brightpearl.com/crowdint/authorise
+    body:
+      encoding: UTF-8
+      string: '{"apiAccountCredentials":{"emailAddress":"steven@crowdint.com","password":"Nagarrab8"}}'
+    headers:
+      User-Agent:
+      - Faraday v0.9.0
+      Content-Type:
+      - application/json
+      Accept:
+      - json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache, must-revalidate
+      Content-Type:
+      - application/json;charset=UTF-8
+      Date:
+      - Tue, 22 Apr 2014 22:35:09 GMT
+      Expires:
+      - Sun, 20 Dec 1998 01:00:00 GMT
+      Pragma:
+      - no-cache
+      Ruid:
+      - cffee76b-94aa-4511-b86e-588b3768a591
+      Server:
+      - Apache-Coyote/1.1
+      Content-Length:
+      - '51'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"response":"1a46dd6b-f909-4d56-8ac3-141112899dfe"}'
+    http_version: 
+  recorded_at: Tue, 22 Apr 2014 22:35:09 GMT
+recorded_with: VCR 2.9.0
