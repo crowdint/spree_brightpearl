@@ -9,7 +9,7 @@ module Spree
     end
 
     def save
-      Nacre::API::Contact.create bp_fields
+      response = Nacre::API::Contact.create bp_fields
       user.brightpearl_id = response[:id]
     end
 
