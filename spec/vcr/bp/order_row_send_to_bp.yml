@@ -1,0 +1,188 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://ws-use.brightpearl.com/crowdint/authorise
+    body:
+      encoding: UTF-8
+      string: '{"apiAccountCredentials":{"emailAddress":"steven@crowdint.com","password":"Nagarrab8"}}'
+    headers:
+      User-Agent:
+      - Faraday v0.9.0
+      Content-Type:
+      - application/json
+      Accept:
+      - json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache, must-revalidate
+      Content-Type:
+      - application/json;charset=UTF-8
+      Date:
+      - Wed, 23 Apr 2014 18:36:38 GMT
+      Expires:
+      - Sun, 20 Dec 1998 01:00:00 GMT
+      Pragma:
+      - no-cache
+      Ruid:
+      - 049c95c2-3fd9-4cbe-9028-5f79be2a0bc9
+      Server:
+      - Apache-Coyote/1.1
+      Content-Length:
+      - '51'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"response":"f4fa5760-db88-46d9-948a-6fadf369e842"}'
+    http_version: 
+  recorded_at: Wed, 23 Apr 2014 18:36:38 GMT
+- request:
+    method: post
+    uri: https://ws-use.brightpearl.com/2.0.0/crowdint//contact-service/postal-address
+    body:
+      encoding: UTF-8
+      string: '{"addressLine1":"FootCardigan Address","postalCode":"115-243"}'
+    headers:
+      User-Agent:
+      - Faraday v0.9.0
+      Content-Type:
+      - application/json
+      Accept:
+      - json
+      Brightpearl-Auth:
+      - f4fa5760-db88-46d9-948a-6fadf369e842
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Brightpearl-Next-Throttle-Period:
+      - '20341'
+      Brightpearl-Requests-Remaining:
+      - '199'
+      Cache-Control:
+      - no-cache, must-revalidate
+      Content-Type:
+      - application/json;charset=UTF-8
+      Date:
+      - Wed, 23 Apr 2014 18:36:38 GMT
+      Expires:
+      - Sun, 20 Dec 1998 01:00:00 GMT
+      Pragma:
+      - no-cache
+      Ruid:
+      - 3d593c08-1484-42db-9d70-53fd156fdf25
+      Server:
+      - Apache-Coyote/1.1
+      Content-Length:
+      - '16'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"response":112}'
+    http_version: 
+  recorded_at: Wed, 23 Apr 2014 18:36:39 GMT
+- request:
+    method: post
+    uri: https://ws-use.brightpearl.com/crowdint/authorise
+    body:
+      encoding: UTF-8
+      string: '{"apiAccountCredentials":{"emailAddress":"steven@crowdint.com","password":"Nagarrab8"}}'
+    headers:
+      User-Agent:
+      - Faraday v0.9.0
+      Content-Type:
+      - application/json
+      Accept:
+      - json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache, must-revalidate
+      Content-Type:
+      - application/json;charset=UTF-8
+      Date:
+      - Wed, 23 Apr 2014 18:36:40 GMT
+      Expires:
+      - Sun, 20 Dec 1998 01:00:00 GMT
+      Pragma:
+      - no-cache
+      Ruid:
+      - d6949901-24da-4790-877f-8cdc27832128
+      Server:
+      - Apache-Coyote/1.1
+      Content-Length:
+      - '51'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"response":"4ccc86d6-e76a-41b7-903d-0dc1e476b0e0"}'
+    http_version: 
+  recorded_at: Wed, 23 Apr 2014 18:36:39 GMT
+- request:
+    method: post
+    uri: https://ws-use.brightpearl.com/2.0.0/crowdint//contact-service/contact
+    body:
+      encoding: UTF-8
+      string: '{"salutation":"Mr.","firstName":"FootCardigan","lastName":"Store","postAddressIds":{"DEF":112,"BIL":112,"DEL":112},"organisation":{"name":"FootCardigan
+        Store"},"communication":{"emails":{"PRI":{"email":"frieda@lemke.us"}}}}'
+    headers:
+      User-Agent:
+      - Faraday v0.9.0
+      Content-Type:
+      - application/json
+      Accept:
+      - json
+      Brightpearl-Auth:
+      - 4ccc86d6-e76a-41b7-903d-0dc1e476b0e0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Brightpearl-Next-Throttle-Period:
+      - '18771'
+      Brightpearl-Requests-Remaining:
+      - '198'
+      Cache-Control:
+      - no-cache, must-revalidate
+      Content-Type:
+      - application/json;charset=UTF-8
+      Date:
+      - Wed, 23 Apr 2014 18:36:41 GMT
+      Expires:
+      - Sun, 20 Dec 1998 01:00:00 GMT
+      Pragma:
+      - no-cache
+      Ruid:
+      - e67eeb2b-30e0-4d4e-9e4d-2452abc43205
+      Server:
+      - Apache-Coyote/1.1
+      Content-Length:
+      - '16'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"response":205}'
+    http_version: 
+  recorded_at: Wed, 23 Apr 2014 18:36:40 GMT
+recorded_with: VCR 2.9.0
