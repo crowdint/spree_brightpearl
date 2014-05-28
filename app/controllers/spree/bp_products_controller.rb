@@ -1,4 +1,4 @@
-class BpProductController < ApplicationController
+class BpProductsController < ApplicationController
   def create
     BpProduct.create bp_products_params
   end
