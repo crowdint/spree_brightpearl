@@ -4,6 +4,7 @@ module Spree
 
     def create
       Spree::BpProduct.create bp_products_params
+      render nothing: true
     end
 
     def update
@@ -12,10 +13,13 @@ module Spree
       else
         Spree::BpProduct.update bp_products_params
       end
+
+      render nothing: true
     end
 
     def destroy
       Spree::BpProduct.destroy bp_products_params
+      render nothing: true
     end
 
     private
