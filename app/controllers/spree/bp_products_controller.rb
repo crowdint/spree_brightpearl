@@ -1,5 +1,7 @@
 module Spree
   class BpProductsController < ApplicationController
+    skip_before_action :verify_authenticity_token
+
     def create
       Spree::BpProduct.create bp_products_params
     end
