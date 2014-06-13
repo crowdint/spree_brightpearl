@@ -18,7 +18,7 @@ module Spree
           magnitude: @line_item.quantity
         },
         rowValue: {
-          taxCode: 'T',
+          taxCode: 'T4',
           rowNet: {
             currencyCode: Spree::Config[:currency],
             value: @line_item.price.to_f
