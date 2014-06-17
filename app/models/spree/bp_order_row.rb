@@ -12,7 +12,7 @@ module Spree
 
   private
     def match_fields
-      {
+      hash = {
         productId: @line_item.variant.brightpearl_id,
         quantity: {
           magnitude: @line_item.quantity
@@ -29,6 +29,10 @@ module Spree
           }
         }
       }
+
+      Rails.logger.info hash
+
+      hash
     end
   end
 end

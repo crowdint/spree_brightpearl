@@ -1,28 +1,28 @@
 module Spree
   class BpOrder < Brightpearl
     attr_accessor :spree_order, :order_rows
-    
+
     def initialize(order)
       super()
       @spree_order = order
       set_rows
     end
-    
+
     def save
       response = Nacre::API::Order.create match_fields
       response[:id].present? ? @spree_order.update_attribute(:brightpearl_id, response[:id]) : false
       save_rows
     end
-    
+
     def self.create(order)
       bp_order = new(order)
       bp_order.save
       bp_order
     end
-    
+
   private
     def match_fields
-      {
+      hash = {
         orderTypeCode: 'SO',
         orderStatus: {
           orderStatusId: 4
@@ -52,12 +52,16 @@ module Spree
           }
         }
       }
+
+      Rails.logger.info hash
+
+      hash
     end
 
     def set_rows
       @order_rows = @spree_order.line_items.map {|line_item| Spree::BpOrderRow.new line_item}
     end
-  
+
     def save_rows
       @order_rows.map &:save
     end
