@@ -20,7 +20,7 @@ describe Spree::BpOrderRow do
       bp_order_row.save
     end
   end
-  
+
   def match_fields(line_item)
     {
       productId: line_item.variant.brightpearl_id,
@@ -28,7 +28,7 @@ describe Spree::BpOrderRow do
         magnitude: line_item.quantity
       },
       rowValue: {
-        taxCode: 'T',
+        taxCode: 'T4',
         rowNet: {
           currencyCode: Spree::Config[:currency],
           value: line_item.price.to_f
