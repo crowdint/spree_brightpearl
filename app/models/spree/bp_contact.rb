@@ -14,7 +14,7 @@ module Spree
     end
 
     def bp_fields
-      {
+      hash = {
         salutation: 'Mr.',
         firstName: 'FootCardigan',
         lastName: 'Store',
@@ -32,6 +32,10 @@ module Spree
           }
         }
       }
+
+      Rails.logger.info hash
+
+      hash
     end
   end
 end
