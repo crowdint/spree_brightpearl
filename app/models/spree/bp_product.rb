@@ -35,7 +35,7 @@ module Spree
         name:                 bp_product.sales_channels.first.product_name,
         description:          bp_product.sales_channels.first.description.text,
         sku:                  bp_product.identity.sku,
-        price:                prices.price_lists.first.quantity_price.to_h.values.first,
+        price:                prices.price_lists.first.quantity_price.to_h.values.first || 0,
         shipping_category_id: 1,
         brand:                brand.name,
         brightpearl_id:       @brightpearl_id
@@ -52,7 +52,7 @@ module Spree
     end
 
     def taxon_name
-      'Brightpeal'
+      'Brightpearl'
     end
 
     def add_taxon
@@ -75,7 +75,7 @@ module Spree
       bp_product = new(params['id'])
       bp_product.variant = Spree::Variant.includes(:product).find_or_create_by brightpearl_id: params['id']
       bp_product.spree_product = bp_product.variant.product
-      bp_product.add_taxon
+      #bp_product.add_taxon
       bp_product.update
     end
 
