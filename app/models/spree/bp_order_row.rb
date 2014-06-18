@@ -21,7 +21,7 @@ module Spree
           taxCode: 'T4',
           rowNet: {
             currencyCode: Spree::Config[:currency],
-            value: @line_item.price.to_f
+            value: @line_item.total.to_f
           },
           rowTax: {
             currencyCode: Spree::Config[:currency],
