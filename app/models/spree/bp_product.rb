@@ -31,7 +31,7 @@ module Spree
       prices = get_prices(@brightpearl_id)
       brand = get_brand(bp_product.brand_id)
 
-      {
+      hash = {
         name:                 bp_product.sales_channels.first.product_name,
         description:          bp_product.sales_channels.first.description.text,
         sku:                  bp_product.identity.sku,
@@ -40,6 +40,10 @@ module Spree
         brand:                brand.name,
         brightpearl_id:       @brightpearl_id
       }
+
+      Rails.logger.info hash
+
+      hash
     end
 
 
