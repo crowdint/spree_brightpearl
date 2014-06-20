@@ -41,7 +41,7 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"response":"22261eaf-f60a-4f37-85ef-c87e908a5b81"}'
-    http_version: 
+    http_version:
   recorded_at: Wed, 02 Apr 2014 23:23:00 GMT
 - request:
     method: get
@@ -93,7 +93,7 @@ http_interactions:
         product","productCondition":"new","categories":[{"categoryCode":"295"}],"description":{"languageCode":"en","text":"\u003cp\u003eThis
         is the largeeeeee description!!!!!!!!\u003c/p\u003e","format":"HTML_FRAGMENT"},"shortDescription":{"languageCode":"en","text":"\u003cp\u003eThis
         is the short description\u003c/p\u003e","format":"HTML_FRAGMENT"}}],"composition":{"bundle":false},"warehouses":{"2":{"defaultLocationId":0,"reorderLevel":20,"reorderQuantity":0}},"nominalCodeStock":"1001"}]}'
-    http_version: 
+    http_version:
   recorded_at: Wed, 02 Apr 2014 23:23:01 GMT
 - request:
     method: get
@@ -141,8 +141,8 @@ http_interactions:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"response":[{"productId":1010,"priceLists":[{"priceListId":1,"currencyCode":"USD","currencyId":1,"quantityPrice":{"1":"1000.0000"}},{"priceListId":2,"currencyCode":"USD","currencyId":1,"quantityPrice":{}}]}]}'
-    http_version: 
+      string: '{"response":[{"productId":1010,"priceLists":[{"priceListId":1,"currencyCode":"USD","currencyId":1,"quantityPrice":{"1":"100.0000"}},{"priceListId":2,"currencyCode":"USD","currencyId":1,"quantityPrice":{"1":"1000.0000"}}]}]}'
+    http_version:
   recorded_at: Wed, 02 Apr 2014 23:23:02 GMT
 - request:
     method: get
@@ -191,6 +191,6 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"response":[{"id":75,"name":"Rails","description":""}]}'
-    http_version: 
+    http_version:
   recorded_at: Wed, 02 Apr 2014 23:23:02 GMT
 recorded_with: VCR 2.9.0

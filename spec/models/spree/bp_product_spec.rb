@@ -61,7 +61,11 @@ describe Spree::BpProduct do
     end
 
     it 'updates product price' do
-      expect(product.price).to eq 1000
+      expect(product.price).to eq BigDecimal.new(1000)
+    end
+
+    it 'updates product cost_price' do
+      expect(product.cost_price).to eq BigDecimal.new(100)
     end
 
     it 'update product brand' do
