@@ -56,7 +56,7 @@ module Spree
     end
 
     def add_taxon
-      if @spree_product.taxons.where(permalink: [taxonomy_name, taxon_name].join('/').downcase).count == 0
+      if @spree_product.taxons.where(permalink: [taxonomy_name.to_url, taxon_name.to_url].join('/')).count == 0
         taxonomy = Spree::Taxonomy.find_or_create_by name: taxonomy_name
         taxon = Spree::Taxon.find_or_create_by name: taxon_name, taxonomy: taxonomy, parent_id: taxonomy.root.id
         @spree_product.taxons << taxon
@@ -75,7 +75,7 @@ module Spree
       bp_product = new(params['id'])
       bp_product.variant = Spree::Variant.includes(:product).find_or_create_by brightpearl_id: params['id']
       bp_product.spree_product = bp_product.variant.product
-      #bp_product.add_taxon
+      bp_product.add_taxon
       bp_product.update
     end
 
