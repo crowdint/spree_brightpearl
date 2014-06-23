@@ -30,6 +30,9 @@ module Spree
           emails: {
             PRI: { email: user.email }
           }
+        },
+        financialDetails:{
+          accountBalance: 0
         }
       }
 
