@@ -35,7 +35,8 @@ module Spree
         name:                 bp_product.sales_channels.first.product_name,
         description:          bp_product.sales_channels.first.description.text,
         sku:                  bp_product.identity.sku,
-        price:                prices.price_lists.first.quantity_price.to_h.values.first || 0,
+        cost_price:           prices.price_lists.first.quantity_price.to_h.values.first || 0,
+        price:                prices.price_lists.last.quantity_price.to_h.values.first || 0,
         shipping_category_id: 1,
         brand:                brand.name,
         brightpearl_id:       @brightpearl_id
@@ -67,7 +68,7 @@ module Spree
       bp_product = new(params['id'])
       bp_product.spree_product = Spree::Product.find_or_create_by name: bp_product.name
       bp_product.update
-      bp_product.add_taxon
+      #bp_product.add_taxon
       bp_product.spree_product
     end
 
