@@ -8,7 +8,7 @@ module Spree
     end
 
     def save
-      Nacre::API::OrderRow.create @order.brightpearl_id, match_fields
+      Nacre::API::OrderNote.create @order.brightpearl_id, match_fields
     end
 
     def self.create(order)
@@ -17,7 +17,7 @@ module Spree
     end
 
     private
-    def match_fieds
+    def match_fields
       {
         text: @order.note
       }
