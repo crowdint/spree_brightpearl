@@ -59,8 +59,6 @@ module Spree
       hash
     end
 
-    private
-
     def set_rows
       @order_rows = @spree_order.line_items.map {|line_item| Spree::BpOrderRow.new line_item}
     end
