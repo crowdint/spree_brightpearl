@@ -19,7 +19,8 @@ module Spree
     private
     def match_fields
       {
-        text: @order.note
+        text: @order.note,
+        isPublic: true
       }
     end
   end
