@@ -68,9 +68,7 @@ module Spree
     end
 
     def add_note
-      if @spree_order.note
-        Spree::BpOrderNote.create @spree_order
-      end
+      Spree::BpOrderNote.create @spree_order if @spree_order.note
     end
   end
 end
