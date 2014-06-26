@@ -13,7 +13,7 @@ module Spree
 
     def self.create(order)
       bp_note = new(order)
-      bp_save
+      bp_note.save
     end
 
     private
