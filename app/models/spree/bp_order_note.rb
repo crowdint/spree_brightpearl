@@ -2,7 +2,7 @@ module Spree
   class BpOrderNote < Brightpearl
     attr_accessor :order
 
-    def initilize(order)
+    def initialize(order)
       super()
       @order = order
     end
