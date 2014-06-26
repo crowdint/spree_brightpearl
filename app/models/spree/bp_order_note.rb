@@ -11,7 +11,7 @@ module Spree
       Nacre::API::OrderRow.create @order.brightpearl_id, match_fields
     end
 
-    def create(order)
+    def self.create(order)
       bp_note = new(order)
       bp_save
     end
