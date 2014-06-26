@@ -12,6 +12,7 @@ module Spree
       response = Nacre::API::Order.create match_fields
       response[:id].present? ? @spree_order.update_attribute(:brightpearl_id, response[:id]) : false
       save_rows
+      add_note
     end
 
     def self.create(order)
@@ -20,7 +21,7 @@ module Spree
       bp_order
     end
 
-  private
+    private
     def match_fields
       hash = {
         orderTypeCode: 'SO',
@@ -64,6 +65,10 @@ module Spree
 
     def save_rows
       @order_rows.map &:save
+    end
+
+    def add_note
+      Spree::BpOrderNote.create @spree_order if @spree_order.note
     end
   end
 end
