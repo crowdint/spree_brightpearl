@@ -91,7 +91,36 @@ module Spree
       bp_product.sync_stock
     end
 
+    def self.generate(gender, recurring, wrap_type, limit = nil)
+      name = "Socks for #{ gender }"
+      name += recurring ? ' - Pay monthly' : ' - Pay once'
+      name += " - Wrap #{ wrap_type }" unless wrap_type == 'none'
+      name += " - By #{ limit } months" if limit || limit.present?
+      create_bp_product(name)
+    end
+
+    def self.create_bp_product(name)
+      Nacre::API::Product.create(bp_product_fields(name))
+    end
+
     private
+
+    def bp_product_fields(name)
+      {
+        brandId: 74,
+        salesChannels: [{
+          salesChannelName: 'Brightpearl',
+          productName: name,
+          categories: [
+            { categoryCode: '276' }
+          ]
+        }]
+      }
+    end
+
+    def create_default_bp_brand
+      Nacre::API::Brand.create( { name: 'default' } )
+    end
 
     def get_bp_product
       @bp_product ||= Nacre::API::Product.find @brightpearl_id
