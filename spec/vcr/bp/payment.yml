@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://ws-eu1.brightpearl.com/crowdint/authorise
+    uri: https://ws-use.brightpearl.com/crowdint/authorise
     body:
       encoding: UTF-8
       string: '{"apiAccountCredentials":{"emailAddress":"tom@footcardigan.com","password":"password"}}'
@@ -45,7 +45,7 @@ http_interactions:
   recorded_at: Mon, 30 Jun 2014 18:34:10 GMT
 - request:
     method: post
-    uri: https://ws-eu1.brightpearl.com/2.0.0/crowdint//accounting-service/sales-receipt
+    uri: https://ws-use.brightpearl.com/2.0.0/crowdint//accounting-service/sales-receipt
     body:
       encoding: UTF-8
       string: '{"orderId":86,"received":{"currency":"USD","value":25},"taxDate":"2014-06-30","bankAccountNominalCode":"1000"}'
