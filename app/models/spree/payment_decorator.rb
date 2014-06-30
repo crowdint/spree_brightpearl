@@ -3,7 +3,9 @@ module Spree
     Spree::Payment.state_machine.after_transition :to => :completed, do: :save_to_brightpearl
 
     def save_to_brightpearl
-      BpPayment.delay.create self.id
+      if order.brightpearl_id
+        BpPayment.delay.create self.id
+      end
     end
   end
 end
