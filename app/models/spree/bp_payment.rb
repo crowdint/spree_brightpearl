@@ -25,7 +25,7 @@ module Spree
         orderId: bp_order_id,
         received: {
           currency: Spree::Config[:currency],
-          value: 25
+          value: value
         },
         taxDate: Time.zone.today,
         bankAccountNominalCode: Spree::Config[:brightpearl_bank_account]
