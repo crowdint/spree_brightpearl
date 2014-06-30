@@ -62,7 +62,7 @@ module Spree
     end
 
     def check_payment
-      return false if @spree_order.payments.completed.size > 0
+      return false unless @spree_order.payments.completed.size > 0
       @spree_order.payments.completed.each &:save_to_brightpearl
     end
 
