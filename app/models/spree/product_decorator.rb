@@ -2,6 +2,10 @@ module Spree
   Product.class_eval do
     delegate :brightpearl_id, :brightpearl_id=, to: :master
 
+    scope :bp_product, -> (bp_product_id) do
+      joins(:master).where('brightpearl_id = ?', bp_product_id)
+    end
+
     def brand
       @brand ||= taxons.joins(:taxonomy).find_by( spree_taxonomies: {name: 'Brand'} )
     end

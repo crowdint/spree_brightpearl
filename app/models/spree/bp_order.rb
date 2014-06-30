@@ -11,6 +11,7 @@ module Spree
     def save
       response = Nacre::API::Order.create match_fields
       response[:id].present? ? @spree_order.update_attribute(:brightpearl_id, response[:id]) : false
+      check_payment
       save_rows
       add_note
     end
@@ -22,6 +23,7 @@ module Spree
     end
 
     private
+
     def match_fields
       hash = {
         orderTypeCode: 'SO',
@@ -57,6 +59,11 @@ module Spree
       Rails.logger.info hash
 
       hash
+    end
+
+    def check_payment
+      return false unless @spree_order.payments.completed.size > 0
+      @spree_order.payments.completed.each &:save_to_brightpearl
     end
 
     def set_rows

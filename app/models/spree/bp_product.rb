@@ -91,19 +91,42 @@ module Spree
       bp_product.sync_stock
     end
 
-    def self.generate(gender, recurring, wrap_type, limit = nil)
-      name = "Socks for #{ gender }"
-      name += recurring ? ' - Pay monthly' : ' - Pay once'
-      name += " - Wrap #{ wrap_type }" unless wrap_type == 'none'
-      name += " - By #{ limit } months" if limit || limit.present?
-      create_bp_product(name)
+    def self.generate(gender, recurring, wrap_type, limit = nil, price = 11, wrap_cost = 2)
+      name = get_bp_product_name(gender, recurring, wrap_type, limit)
+      total_price = calculate_price(price, wrap_cost, wrap_type, limit, recurring)
+      bp_product = create_bp_product(name)
+      spree_product = Spree::Product.bp_product(bp_product[:id])
+      if spree_product
+        update_product_price(spree_product, total_price)
+        spree_product.update_attributes recurring: recurring, limit: limit, type: 'Spree::SubscriptionProduct'
+      end
     end
 
     def self.create_bp_product(name)
       Nacre::API::Product.create(bp_product_fields(name))
     end
 
+    def self.update_product_price(product, price)
+      response = Nacre::API::Price.update(bp_product_price_fields(price), product.brightpearl_id)
+      product.update_attributes price: price if response.status == 200
+    end
+
     private
+
+    def get_bp_product_name(gender, recurring, wrap_type, limit = nil)
+      name = "Socks for #{ gender }"
+      name += recurring ? ' - Pay monthly' : ' - Pay once'
+      name += " - Wrap #{ wrap_type }" unless wrap_type == 'none'
+      name += " - By #{ limit } months" if limit || limit.present?
+    end
+
+    def calculate_price(price, wrap_cost, wrap_type, limit, recurring)
+      price += wrap_cost if wrap_type == 'every month'
+      unless recurring
+        price *= limit
+        price += wrap_cost if wrap_type == 'first month'
+      end
+    end
 
     def bp_product_fields(name)
       {
@@ -114,6 +137,17 @@ module Spree
           categories: [
             { categoryCode: '276' }
           ]
+        }]
+      }
+    end
+
+    def bp_product_price_fields(price)
+      {
+        priceLists: [{
+          priceListId: 1,
+          quantityPrice: {
+            1 => price
+          }
         }]
       }
     end
