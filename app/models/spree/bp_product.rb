@@ -68,7 +68,7 @@ module Spree
       bp_product = new(params['id'])
       bp_product.spree_product = Spree::Product.find_or_create_by name: bp_product.name
       bp_product.update
-      #bp_product.add_taxon
+      bp_product.add_taxon
       bp_product.spree_product
     end
 
@@ -76,7 +76,6 @@ module Spree
       bp_product = new(params['id'])
       bp_product.variant = Spree::Variant.includes(:product).find_or_create_by brightpearl_id: params['id']
       bp_product.spree_product = bp_product.variant.product
-      bp_product.add_taxon
       bp_product.update
     end
 
