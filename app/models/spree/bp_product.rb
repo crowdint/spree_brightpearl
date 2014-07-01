@@ -111,6 +111,8 @@ module Spree
 
     def update_product(recurring, limit, total_price)
       spree_product.update_attributes price: total_price, recurring: recurring, limit: limit, type: 'Spree::SubscriptionProduct'
+      spree_product = Spree::SubscriptionProduct.find spree_product.id
+      spree_product.set_stock_items
     end
 
     def create_bp_product(name)
