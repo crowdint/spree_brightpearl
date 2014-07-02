@@ -27,6 +27,7 @@ module Spree
     def match_fields
       hash = {
         orderTypeCode: 'SO',
+        reference: @spree_order.number,
         orderStatus: {
           orderStatusId: 4
         },
