@@ -47,7 +47,6 @@ module Spree
       hash
     end
 
-
     def taxonomy_name
       'Categories'
     end
@@ -88,74 +87,6 @@ module Spree
       bp_product = new(params['id'])
       bp_product.variant = Spree::Variant.find_by brightpearl_id: params['id']
       bp_product.sync_stock
-    end
-
-    def self.generate(gender, recurring, wrap_type, limit = nil, price = 11, wrap_cost = 2)
-      name = Spree::BpProduct.create_name(gender, recurring, wrap_type, limit)
-      product = new(nil, name)
-      response = product.create_bp_product(name)
-      total_price = product.calculate_price(price, wrap_cost, wrap_type, limit, recurring)
-      Spree::BpProduct.delay.update_created_product(response[:id], recurring, limit, total_price)
-    end
-
-    def self.update_created_product(brightpearl_id, recurring, limit, total_price)
-      bp_product = new(brightpearl_id)
-      variant = Spree::Variant.find_by brightpearl_id: brightpearl_id
-      raise 'Product do not created yet' unless variant
-
-      bp_product.spree_product = variant.product
-      response = Spree::BpProduct.update_product_price(brightpearl_id, total_price)
-      bp_product.update_product(recurring, limit, total_price) if response.status == 200
-    end
-
-    def update_product(recurring, limit, total_price)
-      spree_product.update_attributes price: total_price, recurring: recurring, limit: limit, type: 'Spree::SubscriptionProduct'
-      spree_product = Spree::SubscriptionProduct.find spree_product.id
-      spree_product.set_stock_items
-    end
-
-    def create_bp_product(name)
-      product_fields = {
-        brandId: 74,
-        salesChannels: [{
-          salesChannelName: 'Brightpearl',
-          productName: name,
-          categories: [
-              { categoryCode: '276' }
-          ]
-        }]
-      }
-      Nacre::API::Product.create(product_fields)
-    end
-
-    def self.update_product_price(brightpearl_id, price)
-      product_price_fields = {
-        priceLists: [{
-           priceListId: 1,
-           quantityPrice: {
-               1 => price
-           }
-       }]
-      }
-      Nacre::API::Price.update(product_price_fields, brightpearl_id)
-    end
-
-    def self.create_name(gender, recurring, wrap_type, limit)
-      name = "Socks for #{ gender }"
-      name += recurring ? ' - Pay monthly' : ' - Pay once'
-      name += " - Wrap #{ wrap_type }" unless wrap_type == 'none'
-      name += " - By #{ limit } months" if limit || limit.present?
-      name
-    end
-
-    def calculate_price(price, wrap_cost, wrap_type, limit, recurring)
-      total_price =  price
-      total_price += wrap_cost if wrap_type == 'every month'
-      unless recurring
-        total_price *= limit
-        total_price += wrap_cost if wrap_type == 'first month'
-      end
-      total_price
     end
 
     private
