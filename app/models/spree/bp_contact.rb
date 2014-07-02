@@ -23,9 +23,6 @@ module Spree
           BIL: bp_address_id,
           DEL: bp_address_id
         },
-        organisation: {
-          name: 'FootCardigan Store'
-        },
         communication: {
           emails: {
             PRI: { email: user.email }
