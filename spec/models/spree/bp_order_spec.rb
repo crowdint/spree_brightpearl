@@ -44,6 +44,7 @@ describe Spree::BpOrder do
   def match_fields(order)
     {
       orderTypeCode: 'SO',
+      reference: order.number,
       orderStatus: {
         orderStatusId: 4
       },
