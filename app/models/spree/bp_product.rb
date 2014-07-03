@@ -1,12 +1,14 @@
 module Spree
   class BpProduct < Brightpearl
-    attr_accessor :spree_product, :name, :variant
+    attr_accessor :spree_product, :name, :variant, :product_type_id
 
     def initialize(brightpearl_id, name = nil)
       super()
 
       @brightpearl_id = brightpearl_id
-      @name = name || get_bp_product.sales_channels.first.product_name
+      product = get_bp_product
+      @name = name || product.sales_channels.first.product_name
+      @product_type_id = product.product_type_id
     end
 
     def update
