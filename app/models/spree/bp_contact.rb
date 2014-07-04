@@ -16,8 +16,8 @@ module Spree
     def bp_fields
       hash = {
         salutation: 'Mr.',
-        firstName: 'FootCardigan',
-        lastName: 'Store',
+        firstName: @user.first_name,
+        lastName: @user.first_name,
         postAddressIds: {
           DEF: bp_address_id,
           BIL: bp_address_id,
