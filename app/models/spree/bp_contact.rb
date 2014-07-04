@@ -17,7 +17,7 @@ module Spree
       hash = {
         salutation: 'Mr.',
         firstName: @user.first_name,
-        lastName: @user.first_name,
+        lastName: @user.last_name,
         postAddressIds: {
           DEF: bp_address_id,
           BIL: bp_address_id,
