@@ -23,6 +23,8 @@ require 'ffaker'
 # in spec/support/ and its subdirectories.
 Dir[File.join(File.dirname(__FILE__), 'support/**/*.rb')].each { |f| require f }
 
+ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
+
 # Requires factories defined in spree_core
 require 'spree/testing_support/factories'
 require 'spree/testing_support/controller_requests'
