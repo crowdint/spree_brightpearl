@@ -14,6 +14,9 @@ task :default do
   Rake::Task[:spec].invoke
 end
 
+APP_RAKEFILE = File.expand_path("../spec/dummy/Rakefile", __FILE__)
+load 'rails/tasks/engine.rake'
+
 desc 'Generates a dummy app for testing'
 task :test_app do
   ENV['LIB_NAME'] = 'spree_brightpearl'
