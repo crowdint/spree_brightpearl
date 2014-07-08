@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Spree::BpProduct do
+describe Spree::Brightpearl::Product do
   let(:params){ { 'id' => '1010'}}
 
   before do

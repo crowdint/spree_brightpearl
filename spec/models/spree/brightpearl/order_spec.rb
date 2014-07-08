@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Spree::BpOrder do
+describe Spree::Brightpearl::Order do
   before do
     Spree::Config[:brightpearl_email] = 'steven@crowdint.com'
     Spree::Config[:brightpearl_id] = 'crowdint'
@@ -11,7 +11,7 @@ describe Spree::BpOrder do
   
 
   describe "initialize" do
-    let(:bp_order) { VCR.use_cassette('bp/order_new') { Spree::BpOrder.new order }}
+    let(:bp_order) { VCR.use_cassette('bp/order_new') { Spree::Brightpearl::Order.new order }}
     
     it "create the BpOrderRow" do
       bp_order.order_rows.size.should == order.line_items.size
@@ -22,15 +22,15 @@ describe Spree::BpOrder do
     let(:bp_order) { double("Spree::BpOrder") }
 
     it "create new product" do
-      Spree::BpOrder.should_receive(:new).with(order).and_return(bp_order)
+      Spree::Brightpearl::Order.should_receive(:new).with(order).and_return(bp_order)
       bp_order.should_receive(:save)
       
-      Spree::BpOrder.create order
+      Spree::Brightpearl::Order.create order
     end
   end
   
   describe "save" do
-    let(:bp_order) { VCR.use_cassette('bp/order_save') { Spree::BpOrder.new order }}
+    let(:bp_order) { VCR.use_cassette('bp/order_save') { Spree::Brightpearl::Order.new order }}
     
     it "send to brightpearl" do
       Nacre::API::Order.should_receive(:create).with(match_fields(order)).and_return({id: 123})
