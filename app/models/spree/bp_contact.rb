@@ -14,10 +14,12 @@ module Spree
     end
 
     def bp_fields
+      # TODO: Since Spree does not include username functionality we're
+      # doing a default here. Make sure we fix it in a better manner.
       hash = {
         salutation: 'Mr.',
-        firstName: @user.first_name,
-        lastName: @user.last_name,
+        firstName: @user.try(:first_name) || 'First Name',
+        lastName: @user.try(:last_name) || 'Last Name',
         postAddressIds: {
           DEF: bp_address_id,
           BIL: bp_address_id,
