@@ -7,7 +7,6 @@ script:
 rvm:
 - 2.1.1
 language: ruby
-cache: bundler
 notifications:
   slack:
     secure: IY/Qc9EW1xBpm1vgvMrwN5vDOTxLOT5TCHc8WeuehG7MI365gTvJ4QT9yX/Qc5vWiC42Hzex/ObJ9f2K9QRAlfd80XCtRfS4SaevUjmALqdeCgU2UZpBC76WxT4zIk5kDQyjLtVhQgRUxhdDeD3LlHfk/84OwiTGAnRK/TJ9LOQ=
