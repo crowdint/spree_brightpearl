@@ -13,11 +13,14 @@ end
 # Configure Rails Environment
 ENV['RAILS_ENV'] ||= 'test'
 
+require 'sidekiq'
 require File.expand_path('../dummy/config/environment.rb',  __FILE__)
 
 require 'rspec/rails'
 require 'database_cleaner'
 require 'ffaker'
+require 'sidekiq/testing'
+Sidekiq::Testing.fake!
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
@@ -34,9 +37,6 @@ require 'spree/testing_support/url_helpers'
 # Requires factories defined in lib/spree_brightpearl/factories.rb
 require 'spree_brightpearl/factories'
 
-require 'sidekiq'
-require 'sidekiq/testing'
-Sidekiq::Testing.fake!
 
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
