@@ -11,7 +11,7 @@ describe Spree::Order do
 
   describe '#create_brightpearl_order' do
     it 'queue a new job' do
-      BpOrderWorker.should_receive(:perform_async).with(order.id)
+      Spree::Brightpearl::OrderWorker.should_receive(:perform_async).with(order.id)
 
       VCR.use_cassette('bp/order_create') do
         order.next!

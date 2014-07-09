@@ -3,7 +3,7 @@ module Spree
     Spree::Order.state_machine.after_transition :to => :complete, :do => :create_brightpearl_order
     
     def create_brightpearl_order
-      ::BpOrderWorker.perform_async self.id
+      Brightpearl::OrderWorker.perform_async self.id
     end
   end
 end
