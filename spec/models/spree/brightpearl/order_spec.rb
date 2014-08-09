@@ -8,39 +8,39 @@ describe Spree::Brightpearl::Order do
   end
 
   let(:order) { VCR.use_cassette('bp/authorise') { create(:order_ready_to_complete) }}
-  
+
 
   describe "initialize" do
     let(:bp_order) { VCR.use_cassette('bp/order_new') { Spree::Brightpearl::Order.new order }}
-    
+
     it "create the BpOrderRow" do
       bp_order.order_rows.size.should == order.line_items.size
     end
   end
 
   describe "self.create" do
-    let(:bp_order) { double("Spree::BpOrder") }
+    let(:bp_order) { double("Spree::Brightpearl::Order") }
 
     it "create new product" do
       Spree::Brightpearl::Order.should_receive(:new).with(order).and_return(bp_order)
       bp_order.should_receive(:save)
-      
+
       Spree::Brightpearl::Order.create order
     end
   end
-  
+
   describe "save" do
     let(:bp_order) { VCR.use_cassette('bp/order_save') { Spree::Brightpearl::Order.new order }}
-    
+
     it "send to brightpearl" do
       Nacre::API::Order.should_receive(:create).with(match_fields(order)).and_return({id: 123})
-      
+
       VCR.use_cassette('bp/order_row_create') {
         bp_order.save
       }
     end
   end
-  
+
   def match_fields(order)
     {
       orderTypeCode: 'SO',
