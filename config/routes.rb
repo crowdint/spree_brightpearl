@@ -1,5 +1,8 @@
 Spree::Core::Engine.routes.draw do
-  resources :bp_products
+
+  namespace :brightpearl do
+    resources :products
+  end
 
   namespace :admin do
     resource :brightpearl, only: [:edit, :update]

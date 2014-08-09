@@ -73,6 +73,7 @@ RSpec.configure do |config|
     DatabaseCleaner.clean_with :truncation
   end
 
+  config.expose_current_running_example_as :example
   # Before each spec check if it is a Javascript test and switch between using database transactions or not where necessary.
   config.before :each do
     DatabaseCleaner.strategy = example.metadata[:js] ? :truncation : :transaction
@@ -85,4 +86,8 @@ RSpec.configure do |config|
   end
 
   config.fail_fast = ENV['FAIL_FAST'] || false
+
+  RSpec.configure do |config|
+    config.infer_spec_type_from_file_location!
+  end
 end

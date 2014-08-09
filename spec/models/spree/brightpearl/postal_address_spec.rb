@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Spree::BpPostalAddress do
+describe Spree::Brightpearl::PostalAddress do
 
   before do
     Spree::Config[:brightpearl_email] = 'mumo.crls@gmail.com'

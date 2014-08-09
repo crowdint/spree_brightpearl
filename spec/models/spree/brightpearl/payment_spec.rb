@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Spree::BpPayment do
+describe Spree::Brightpearl::Payment do
   let(:payment) { create :payment }
 
   before do
@@ -13,7 +13,7 @@ describe Spree::BpPayment do
   end
 
   describe '#save' do
-    let(:subject) { Spree::BpPayment.new(payment.id) }
+    let(:subject) { Spree::Brightpearl::Payment.new(payment.id) }
 
     before do
       VCR.use_cassette('bp/payment') do

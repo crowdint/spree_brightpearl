@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Spree::BpHook do
+describe Spree::Brightpearl::Hook do
   describe '#set_products' do
     before do
       Spree::Config[:brightpearl_email] = 'steven@crowdint.com'

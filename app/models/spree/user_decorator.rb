@@ -10,11 +10,11 @@ module Spree
     end
 
     def create_brightpearl_address
-      Spree::BpPostalAddress.new.save
+      Spree::Brightpearl::PostalAddress.new.save
     end
 
     def create_brightpearl_contact(bp_address_id)
-      Spree::BpContact.new(self, bp_address_id).save
+      Spree::Brightpearl::Contact.new(self, bp_address_id).save
     rescue Exception => e
       Rails.logger.info "Brigthpearl Error: #{e.message}"
     end

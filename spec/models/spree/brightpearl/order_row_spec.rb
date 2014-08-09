@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Spree::BpOrderRow do
+describe Spree::Brightpearl::OrderRow do
   before do
     Spree::Config[:brightpearl_email] = 'steven@crowdint.com'
     Spree::Config[:brightpearl_id] = 'crowdint'
@@ -9,7 +9,7 @@ describe Spree::BpOrderRow do
 
   let(:order) { create(:order_with_line_item)}
   let(:line_item) { order.line_items.first }
-  let(:bp_order_row) { Spree::BpOrderRow.new(line_item) }
+  let(:bp_order_row) { Spree::Brightpearl::OrderRow.new(line_item) }
 
   it 'creates new order row' do
     VCR.use_cassette('bp/order_row_send_to_bp') do
