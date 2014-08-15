@@ -17,5 +17,15 @@ module Spree
         taxons.new(name: brand_name, taxonomy: Spree::Taxonomy.find_by(name: 'Brand') )
       end
     end
+
+    def set_as_backorderable
+      stock_items.each do |stock_item|
+        stock_item.update_attributes backorderable: true
+      end
+    end
+
+    def set_availble_on_today
+      update_attributes available_on: Date.today
+    end
   end
 end
