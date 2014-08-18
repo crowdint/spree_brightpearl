@@ -42,10 +42,9 @@ module Spree
           price:                prices.price_lists.last.quantity_price.to_h.values.first || 0,
           shipping_category_id: 1,
           brand:                brand.name,
-          brightpearl_id:       @brightpearl_id
+          brightpearl_id:       @brightpearl_id,
+          available_on:         Time.zone.today
         }
-
-        Rails.logger.info hash
 
         hash
       end
@@ -69,9 +68,9 @@ module Spree
       def self.create(params)
         bp_product = new(params['id'])
         bp_product.spree_product = Spree::Product.find_or_create_by name: bp_product.name
+        bp_product.add_taxon unless bp_product.spree_product.available?
         bp_product.update
         bp_product.spree_product.set_as_backorderable
-        bp_product.add_taxon
         bp_product.spree_product
       end
 
