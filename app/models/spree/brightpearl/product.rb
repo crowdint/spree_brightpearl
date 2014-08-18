@@ -71,7 +71,6 @@ module Spree
         bp_product.spree_product = Spree::Product.find_or_create_by name: bp_product.name
         bp_product.update
         bp_product.spree_product.set_as_backorderable
-        bp_product.spree_product.set_availble_on_today
         bp_product.add_taxon
         bp_product.spree_product
       end

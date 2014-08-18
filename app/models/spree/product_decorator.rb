@@ -23,9 +23,5 @@ module Spree
         stock_item.update_attributes backorderable: true
       end
     end
-
-    def set_availble_on_today
-      update_attributes available_on: Date.today
-    end
   end
 end
