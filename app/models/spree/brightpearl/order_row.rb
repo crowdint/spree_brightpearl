@@ -15,6 +15,7 @@ module Spree
       def match_fields
         hash = {
           productId: @line_item.variant.brightpearl_id,
+          productName: @line_item.name,
           quantity: {
             magnitude: @line_item.quantity
           },

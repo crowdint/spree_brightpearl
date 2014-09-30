@@ -24,6 +24,7 @@ describe Spree::Brightpearl::OrderRow do
   def match_fields(line_item)
     {
       productId: line_item.variant.brightpearl_id,
+      productName: line_item.name,
       quantity: {
         magnitude: line_item.quantity
       },
