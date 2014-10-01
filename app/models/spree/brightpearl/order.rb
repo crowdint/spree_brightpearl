@@ -12,8 +12,8 @@ module Spree
       def save
         response = Nacre::API::Order.create match_fields
         response[:id].present? ? @spree_order.update_attribute(:brightpearl_id, response[:id]) : false
-        check_payment
         save_rows
+        check_payment
         add_note
       end
 
