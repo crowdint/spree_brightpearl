@@ -7,9 +7,10 @@ module Spree
         super()
 
         @brightpearl_id = brightpearl_id
-        product = get_bp_product
-        @name = name || product.sales_channels.first.product_name
-        @product_type_id = product.product_type_id
+        @product = get_bp_product
+        @name = name || @product.sales_channels.first.product_name
+        @product_type_id = @product.product_type_id
+        @category = get_category
       end
 
       def update
@@ -112,6 +113,11 @@ module Spree
 
       def get_availability
         Nacre::API::ProductAvailability.find @brightpearl_id
+      end
+
+      def get_category
+        category_id = @product.sales_channels.first.categories.first.category_code
+        Nacre::API::Category.find category_id
       end
     end
   end
