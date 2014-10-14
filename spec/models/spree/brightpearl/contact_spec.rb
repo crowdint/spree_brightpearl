@@ -36,6 +36,7 @@ describe Spree::Brightpearl::Contact do
           :salutation     => "Mr.",
           :firstName      => "Les",
           :lastName       => "Claypool",
+          :organisation   => { name: nil },
           :postAddressIds => {:DEF=>100, :BIL=>100, :DEL=>100},
           :communication  => {
               :emails=>{:PRI=>{:email=>"test@example.com"}}}, :financialDetails=>{:accountBalance=>0}

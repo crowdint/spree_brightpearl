@@ -9,9 +9,11 @@ describe Spree::Brightpearl::PostalAddress do
   end
 
   describe '#save' do
+    let(:bp_address) { described_class.new nil }
+
     let(:response) do
       VCR.use_cassette 'bp/postal_address' do
-        subject.save
+        bp_address.save
       end
     end
 
@@ -20,5 +22,4 @@ describe Spree::Brightpearl::PostalAddress do
     end
   end
 end
-
 

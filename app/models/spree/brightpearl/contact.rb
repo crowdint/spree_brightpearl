@@ -26,6 +26,9 @@ module Spree
             BIL: bp_address_id,
             DEL: bp_address_id
           },
+          organisation: {
+            name: user.id
+          },
           communication: {
             emails: {
               PRI: { email: user.email }

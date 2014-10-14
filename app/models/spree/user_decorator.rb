@@ -3,14 +3,14 @@ module Spree
     before_create :create_brightpearl_resources
 
     def create_brightpearl_resources
-      bp_address = create_brightpearl_address
+      bp_address = ship_address ? create_brightpearl_address(ship_address.id) : nil
       create_brightpearl_contact(bp_address[:id]) if bp_address
     rescue Exception => e
-      Rails.logger.info "Brifhtpearl Error: #{e.message}"
+      Rails.logger.info "Brightpearl Error: #{e.message}"
     end
 
-    def create_brightpearl_address
-      Spree::Brightpearl::PostalAddress.new.save
+    def create_brightpearl_address(address_id)
+      Spree::Brightpearl::PostalAddress.new(address_id).save
     end
 
     def create_brightpearl_contact(bp_address_id)
